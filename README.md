@@ -1,1 +1,2 @@
 # BagliListe
+Veri Yapıları 
