@@ -1,2 +1,2 @@
-# BagliListe
-Veri Yapıları 
+# data structures
+ 
