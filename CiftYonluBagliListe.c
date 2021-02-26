@@ -2,7 +2,7 @@
 #include <malloc.h>
 
 
-//Düğümleri tutacağımız struct yapımız
+//DÃ¼ÄŸÃ¼mleri tutacaÄŸÄ±mÄ±z struct yapÄ±mÄ±z
 struct node {
 
     int data;
@@ -10,10 +10,10 @@ struct node {
     struct node *prev;
 };
 
-//Başlangıç düğümü bizim için çok önemli, global değişken olarak tanımladık ve başlangıçta NULL atadık.
+//BaÅŸlangÄ±Ã§ dÃ¼ÄŸÃ¼mÃ¼ bizim iÃ§in Ã§ok Ã¶nemli, global deÄŸiÅŸken olarak tanÄ±mladÄ±k ve baÅŸlangÄ±Ã§ta NULL atadÄ±k.
 struct node* start = NULL;
 
-//Düğüm olusturup return eden fonksiyon
+//DÃ¼ÄŸÃ¼m olusturup return eden fonksiyon
 struct node* dugumOlustur(int veri)
 {
     struct node* yeniDugum = (struct node*)malloc(sizeof(struct node));
@@ -24,12 +24,12 @@ struct node* dugumOlustur(int veri)
     return yeniDugum;
 }
 
-//Çift yönlü bağlı listede sona düğüm ekleyen fonksiyon
+//Ã‡ift yÃ¶nlÃ¼ baÄŸlÄ± listede sona dÃ¼ÄŸÃ¼m ekleyen fonksiyon
 void sonaEkle(int veri)
 {
     struct node* sonaEklenecek = dugumOlustur(veri);
 
-    //Eğer listede hiç eleman yoksa yeni eleman ekliyoruz
+    //EÄŸer listede hiÃ§ eleman yoksa yeni eleman ekliyoruz
     if (start == NULL)
     {
         start = sonaEklenecek;
@@ -37,24 +37,24 @@ void sonaEkle(int veri)
 
     else
     {
-        //traverse etmek için temp değişkenine start değişkenini atadık, maksat start değişkenini bozmamak.
+        //traverse etmek iÃ§in temp deÄŸiÅŸkenine start deÄŸiÅŸkenini atadÄ±k, maksat start deÄŸiÅŸkenini bozmamak.
         struct node* temp = start;
 
-        //Aşağıdaki döngü traverse yapıyor ve temp düğümü döngü sonunda son düğüm oluyor.
+        //AÅŸaÄŸÄ±daki dÃ¶ngÃ¼ traverse yapÄ±yor ve temp dÃ¼ÄŸÃ¼mÃ¼ dÃ¶ngÃ¼ sonunda son dÃ¼ÄŸÃ¼m oluyor.
         while (temp->next != NULL)
         {
             temp = temp->next;
         }
 
-        //temp elemanı (eski son) olduğu için sonaEklenecek (yeni son) düğümünün prev işaretçisi tempi gösterecek.
+        //temp elemanÄ± (eski son) olduÄŸu iÃ§in sonaEklenecek (yeni son) dÃ¼ÄŸÃ¼mÃ¼nÃ¼n prev iÅŸaretÃ§isi tempi gÃ¶sterecek.
         sonaEklenecek->prev = temp;
 
-        //temp değişkeninin next işaretçisi ise artık yeni son elemanımız olan sonaEklenecek düğümünü işaret edecek.
+        //temp deÄŸiÅŸkeninin next iÅŸaretÃ§isi ise artÄ±k yeni son elemanÄ±mÄ±z olan sonaEklenecek dÃ¼ÄŸÃ¼mÃ¼nÃ¼ iÅŸaret edecek.
         temp->next = sonaEklenecek;
     }
 }
 
-//Çift yönlü bağlı listede başa düğüm ekleyen fonksiyon
+//Ã‡ift yÃ¶nlÃ¼ baÄŸlÄ± listede baÅŸa dÃ¼ÄŸÃ¼m ekleyen fonksiyon
 void basaEkle(int veri)
 {
     struct node* basaEklenecek = dugumOlustur(veri);
@@ -70,7 +70,7 @@ void basaEkle(int veri)
     start = basaEklenecek;
 }
 
-//Çift yönlü bağlı listede araya düğüm ekleyen fonksiyon
+//Ã‡ift yÃ¶nlÃ¼ baÄŸlÄ± listede araya dÃ¼ÄŸÃ¼m ekleyen fonksiyon
 void arayaEkle(int kiminOnune, int eklenecek)
 {
     struct node* temp = start;
@@ -105,7 +105,7 @@ void arayaEkle(int kiminOnune, int eklenecek)
 
 }
 
-//Çift yönlü bağlı listede baştan düğüm silen fonksiyon
+//Ã‡ift yÃ¶nlÃ¼ baÄŸlÄ± listede baÅŸtan dÃ¼ÄŸÃ¼m silen fonksiyon
 void bastanSil()
 {
     if (start == NULL)
@@ -127,7 +127,7 @@ void bastanSil()
     start = ikinci;
 }
 
-//Çift yönlü bağlı listede sondan düğüm silen fonksiyon
+//Ã‡ift yÃ¶nlÃ¼ baÄŸlÄ± listede sondan dÃ¼ÄŸÃ¼m silen fonksiyon
 void sondanSil()
 {
     if (start == NULL)
@@ -153,7 +153,7 @@ void sondanSil()
     onceki->next = NULL;
 }
 
-//Çift yönlü bağlı listede aradan düğüm silen fonksiyon
+//Ã‡ift yÃ¶nlÃ¼ baÄŸlÄ± listede aradan dÃ¼ÄŸÃ¼m silen fonksiyon
 void aradanSil(int silinecek)
 {
     struct node* temp = start;
@@ -183,7 +183,7 @@ void aradanSil(int silinecek)
     sonraki->prev = onceki;
 }
 
-//Düğüm yapısını ekrana
+//DÃ¼ÄŸÃ¼m yapÄ±sÄ±nÄ± ekrana
 void yazdir()
 {
     struct node* temp = start;
